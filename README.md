@@ -1,7 +1,7 @@
 # FBbridge
 * FBbridge 封装了app端、微信端以及m端的公共方法，向外提供统一接口。
 * 当前版本号：1.0.1
-
+* 项目下载地址：https://github.com/wisdompony0306/Fbridge.git
 
 # 注意事项
 * FBridge必须在zepto之前引入，否则会导致微信方法调用无效
