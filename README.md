@@ -1,7 +1,7 @@
 # FBbridge
 * FBbridge 封装了app端、微信端以及m端的公共方法，向外提供统一接口。
 * 当前版本号：1.0.1
-* 线上地址：http://j1.58cdn.com.cn/fangrs/fbridge/1.0.1/FBridge.js
+
 
 # 注意事项
 * FBridge必须在zepto之前引入，否则会导致微信方法调用无效
@@ -30,7 +30,7 @@
      *  ##### <m,wx,app> ---- href:跳转地址  
      *  ##### <app> ---- pageTitle:跳转H5页面的title 
      *  ##### <app> ---- nativeParameter:跳转native页面的参数，为空则跳转H5页面 
-     *  ##### 例子：FBridge.router.redirect('http://m.58.com','title',nativeParrmeter)
+     *  ##### 例子：FBridge.router.redirect('http://m.***.com','title',nativeParrmeter)
      *  ##### 问题：跳转native目前是空白页，考虑到有可能参数失效，需要进一步测试
 * ## track
   *  ### show (appPageType:string, mPageType:string, wxPageType:string,cate:string = '1',actionType:string = 'show') 
@@ -53,10 +53,10 @@
      *  ##### <app,wx> ---- title:分享标题
      *  ##### <app，wx> ---- content:分享描述
      *  ##### <app，wx> ---- url:分享地址，不传则默认当前地址
-     *  ##### <app，wx> ---- imgUrl:分享图标链接，不传则默认58图标
+     *  ##### <app，wx> ---- imgUrl:分享图标链接，不传则默认**图标
      *  ##### <app，wx> ---- shareto:分享到的平台，app支持"QQ,SINA,WEIXIN,FRIENDS，wx支持QQ,WEIXIN,FRIENDS,TENCENT,QQSPACE.默认为全部支持
      *  ##### <app，wx> ----  callback(String:state, String:source) state: 0 失败 1成功 2取消 source: QQ | WEIXIN | FRIENDS | SINA | TENCENT | QQSPACE
-     *  ##### 例子：FBridge.share.config('title', 'content', 'http://m.58.com', undefined, undefined, function (state, platform) { alert(state + ' ' + platform) })
+     *  ##### 例子：FBridge.share.config('title', 'content', 'http://m.***.com', undefined, undefined, function (state, platform) { alert(state + ' ' + platform) })
 
 # 工具 
 * ## env
@@ -86,7 +86,7 @@
 
  * ### loadjs(url：string, callback:function)
    *  _动态加载js，并在加载完成后执行回调_
-   *  #### 例子：FBridge.loadjs('http://tracklog.58.com/referrer_m.js',function(){alert('finish')})
+   *  #### 例子：FBridge.loadjs('http://tracklog.***.com/referrer_m.js',function(){alert('finish')})
 
 # 协同开发流程（初稿）
 * ## 1.拉取代码，新建分支
