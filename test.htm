@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <title>FBridge test</title>
+
+    <style>
+        button {
+            display: block;
+            width: 100%;
+            line-height: 50px;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onerror = function (msg, url, line, col, error) {
+            var extra = !col ? '' : '\ncolumn: ' + col;
+            extra += !error ? '' : '\nerror: ' + error;
+            alert("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+            var suppressErrorAlert = true;
+            return suppressErrorAlert;
+        };
+    </script>
+</head>
+
+<body>
+    <button onclick="FBridge.loadjs('http://tracklog.58.com/referrer_m.js',function(){alert('finish')})">loadjs</button>
+    <button onclick="FBridge.cookie.set('test','test',1)">setCookie</button>
+    <button onclick="alert(FBridge.cookie.get('test'))">getCookie</button>
+    <button onclick="FBridge.cookie.remove('test')">removeCookie</button>
+    <button onclick="alert(FBridge.env.platform)">getEnv</button>
+    <button onclick="FBridge.passport.isLogin(function(data){alert(data['state'])})">isLogin</button>
+    <button onclick="FBridge.passport.login(window.location.href,function(state){alert(state)})">Login</button>
+    <button onclick="FBridge.passport.logout(window.location.href,function(state){alert(state)})">logout</button>
+    <button onclick="FBridge.track.show('pagetype')">track show</button>
+    <button onclick="FBridge.track.send('logMsg')">track send</button>
+    <button onclick="FBridge.router.redirect('http://m.58.com','title',nativeParrmeter)">redirect native</button>
+    <button onclick="FBridge.router.redirect('http://m.58.com','title')">redirect loadPage</button>
+
+
+    <script src="//a.58cdn.com.cn/app58/static/rms/app/js/app_20264.js"></script>
+    <script src="//tracklog.58.com/referrer_m.js"></script>
+
+    <script src="dist/FBridge.js"></script>
+
+    <script src="//j2.58cdn.com.cn/olympia/js/lib/esl_zepto_load.min.js"></script>
+
+    <script>
+        var nativeParrmeter = '{"action":"pagetrans","tradeline":"house","content":{"charge_url":"","full_path":"1,70134","list_name":"gongyu","title":"","local_name":"bj","recomInfo":true,"filterParames":[],"cityid":"","pre_info":"","use_cache":true,"infoID":"29705665325742","forbidLeftSlide":"yes","action":"pagetrans","pagetype":"gongyuDetail","tradeline":"house","internaljump":"no","commondata":{"gongyu_type":"house"}}}';
+        FBridge.share.config('title', 'content', 'http://m.58.com', undefined, undefined, function (state, platform) { alert(state + ' ' + platform) })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
